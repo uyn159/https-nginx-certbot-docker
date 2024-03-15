@@ -29,5 +29,5 @@ services:
       dockerfile: Dockerfile
     container_name: react-app
     volumes:
-      - ./react-app/build:/app/build
+      - ./build:/app/build
     restart: always
