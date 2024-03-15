@@ -25,7 +25,7 @@ services:
 
   react-app:
     build:
-      context: ./m
+      context: ./my
       dockerfile: Dockerfile
     container_name: react-app
     volumes:
