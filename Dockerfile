@@ -1,24 +1,14 @@
-# Use the official lightweight Node.js 14 image
-FROM node:14 AS build
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the dependencies file to the working directory
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the project files to the working directory
+FROM node:20-alpine AS build
+WORKDIR /app-app
+COPY package.json yarn.lock ./
+RUN yarn install 
 COPY . .
-
-# Build the React app
-RUN npm run build
+RUN yarn build
 
 # Use Nginx image as the base image
 FROM nginx:alpine
-
+WORKDIR /nginx 
+COPY . .
 # Copy the React app build files to the Nginx html directory
 COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
