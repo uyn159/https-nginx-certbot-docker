@@ -73,7 +73,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./etc/letsencrypt/live/liyouyang.tech:/etc/nginx/certs
+      - ./etc/nginx/certs:/etc/letsencrypt/live/liyouyang.tech
       - ./build:/usr/share/nginx/html
     restart: always
 
