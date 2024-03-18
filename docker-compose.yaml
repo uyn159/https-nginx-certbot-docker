@@ -72,7 +72,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./etc/nginx/certs:/etc/letsencrypt/live/liyouyang.tech
+      - ./etc/nginx:/etc/letsencrypt/live/liyouyang.tech
     restart: always
 
   
